@@ -19,7 +19,14 @@ select x, y, z,
         else 'No'
     end as 'triangle'
 from triangle
---Bài 3 em không hiểu ạ 
+--Bài 3 
+SELECT
+    ROUND(SUM(CASE 
+      WHEN call_category IS NULL THEN 1 
+      WHEN call_category = 'n/a' THEN 1
+      ELSE 0
+    END) * 100 /COUNT(call_category), 1)
+FROM callers
 --Bài 4
 select name from customer 
 where referee_id <> 2
